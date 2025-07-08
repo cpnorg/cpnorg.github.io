@@ -76,7 +76,7 @@ proxies:
     <<: *bdhttp
 
 proxy-groups:
-  - name: 🇨🇳 爱看直连
+  - name: 🇨🇳 百度爱看直连
     type: select
     proxies:
       - 🇨🇳 CU河北1
