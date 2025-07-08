@@ -1,0 +1,172 @@
+CF: &CF
+  type: vless
+  uuid: 96f9af08-e50e-41fe-a783-3f56b7625d2a
+  udp: false
+  tls: false
+  servername: 240502.offo.workers.dev
+  network: ws
+  ws-opts:
+    path: "/?ed=2560"
+    headers:
+      Host: 240502.offo.workers.dev
+  dialer-proxy: 🇨🇳 国内节点
+
+CF2: &CF2
+  type: vless
+  uuid: 6091bda6-9af8-4178-9739-8b2930ea72c3
+  udp: false
+  tls: true
+  servername: vless.i1688.sbs
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/?proxyip=proxyip.us.fxxk.dedyn.io"
+    headers:
+      Host: vless.i1688.sbs
+  dialer-proxy: 🇨🇳 国内节点
+
+proxies:
+  - name: cf.090227.xyz
+    server: cf.090227.xyz
+    port: 80
+    <<: *CF
+
+  - name: www.xinjuc.com
+    server: www.xinjuc.com
+    port: 80
+    <<: *CF
+
+  - name: ip.sb
+    server: ip.sb
+    port: 80
+    <<: *CF
+
+  - name: skk.moe
+    server: skk.moe
+    port: 80
+    <<: *CF
+
+  - name: cfip.1323123.xyz
+    server: cfip.1323123.xyz
+    port: 80
+    <<: *CF
+
+  - name: 8.cf.959923.xyz
+    server: 8.cf.959923.xyz
+    port: 80
+    <<: *CF
+
+  - name: cf.877771.xyz
+    server: cf.877771.xyz
+    port: 80
+    <<: *CF
+
+  - name: 1.cf.cname.vvhan.com
+    server: 1.cf.cname.vvhan.com
+    port: 80
+    <<: *CF
+
+  - name: cf.0sm.com
+    server: cf.0sm.com
+    port: 80
+    <<: *CF
+
+  - name: cdn.2020111.xyz
+    server: cdn.2020111.xyz
+    port: 80
+    <<: *CF
+
+  - name: 115155.xyz
+    server: 115155.xyz
+    port: 8080
+    <<: *CF
+
+  - name: cloudflare.182682.xyz
+    server: cloudflare.182682.xyz
+    port: 80
+    <<: *CF
+
+  - name: freeyx.cloudflare88.eu.org
+    server: freeyx.cloudflare88.eu.org
+    port: 8080
+    <<: *CF
+
+  - name: speed.marisalnc.com
+    server: speed.marisalnc.com
+    port: 80
+    <<: *CF
+
+  - name: CF_V0_www.visa.com.hk_8080
+    server: www.visa.com.hk
+    port: 8080
+    <<: *CF
+
+  - name: CF_V1_www.visa.com_80
+    server: www.visa.com
+    port: 80
+    <<: *CF
+
+  - name: CF_V2_cis.visa.com_8080
+    server: cis.visa.com
+    port: 8080
+    <<: *CF
+
+  - name: CF_V3_africa.visa.com_8880
+    server: africa.visa.com
+    port: 8880
+    <<: *CF
+
+  - name: CF_V4_www.visa.com.sg_2052
+    server: www.visa.com.sg
+    port: 2052
+    <<: *CF
+
+  - name: CF_V5_www.visaeurope.at_2082
+    server: www.visaeurope.at
+    port: 2082
+    <<: *CF
+
+  - name: CF_V6_www.visa.com.mt_2086
+    server: www.visa.com.mt
+    port: 2086
+    <<: *CF
+
+  - name: CF_V7_qa.visamiddleeast.com_2095
+    server: qa.visamiddleeast.com
+    port: 2095
+    <<: *CF
+
+  - name: CF_V8_usa.visa.com_443
+    server: usa.visa.com
+    port: 443
+    <<: *CF2
+
+  - name: CF_V9_myanmar.visa.com_8443
+    server: myanmar.visa.com
+    port: 8443
+    <<: *CF2
+
+  - name: CF_V10_www.visa.com.tw_2053
+    server: www.visa.com.tw
+    port: 2053
+    <<: *CF2
+
+  - name: CF_V11_www.visaeurope.ch_2083
+    server: www.visaeurope.ch
+    port: 2083
+    <<: *CF2
+
+  - name: CF_V12_www.visa.com.br_2087
+    server: www.visa.com.br
+    port: 2087
+    <<: *CF2
+
+  - name: CF_V13_www.visasoutheasteurope.com_2096
+    server: www.visasoutheasteurope.com
+    port: 2096
+    <<: *CF2
+
+  - name: CF_V14_singapore.com_443
+    server: singapore.com
+    port: 443
+    <<: *CF2
