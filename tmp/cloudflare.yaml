@@ -9,7 +9,6 @@ CF: &CF
     path: "/?ed=2560"
     headers:
       Host: 240502.offo.workers.dev
-  dialer-proxy: 🇨🇳 国内节点
 
 CF2: &CF2
   type: vless
@@ -23,7 +22,6 @@ CF2: &CF2
     path: "/?proxyip=proxyip.us.fxxk.dedyn.io"
     headers:
       Host: vless.i1688.sbs
-  dialer-proxy: 🇨🇳 国内节点
 
 proxies:
   - name: cf.090227.xyz
