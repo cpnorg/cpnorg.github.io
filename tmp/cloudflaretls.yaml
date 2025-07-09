@@ -157,7 +157,7 @@ proxies:
     port: 8443
     <<: *CF
 
-- name: www.dynadot.com_443
+  - name: www.dynadot.com_443
     server: www.dynadot.com
     port: 443
     <<: *CF
