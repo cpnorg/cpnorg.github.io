@@ -1,4 +1,4 @@
-CF2: &CF2
+CF: &CF
   type: vless
   uuid: 6091bda6-9af8-4178-9739-8b2930ea72c3
   udp: false
@@ -12,183 +12,187 @@ CF2: &CF2
       Host: vless.i1688.sbs
 
 proxies:
-  - name: cf.090227.xyz
+  - name: cf.090227.xyz_2096
     server: cf.090227.xyz
-    port: 443
-    <<: *CF2
+    port: 2096
+    <<: *CF
 
-  - name: www.xinjuc.com
+  - name: www.xinjuc.com_2087
     server: www.xinjuc.com
-    port: 443
-    <<: *CF2
+    port: 2087
+    <<: *CF
 
-  - name: ip.sb
+  - name: ip.sb_2083
     server: ip.sb
-    port: 443
-    <<: *CF2
+    port: 2083
+    <<: *CF
 
-  - name: skk.moe
+  - name: skk.moe_2053
     server: skk.moe
-    port: 443
-    <<: *CF2
+    port: 2053
+    <<: *CF
 
-  - name: cfip.1323123.xyz
+  - name: cfip.1323123.xyz_8443
     server: cfip.1323123.xyz
-    port: 443
-    <<: *CF2
+    port: 8443
+    <<: *CF
 
-  - name: 8.cf.959923.xyz
+  - name: 8.cf.959923.xyz_8443
     server: 8.cf.959923.xyz
-    port: 443
-    <<: *CF2
+    port: 8443
+    <<: *CF
 
-  - name: cf.877771.xyz
+  - name: cf.877771.xyz_443
     server: cf.877771.xyz
     port: 443
-    <<: *CF2
+    <<: *CF
 
-  - name: 1.cf.cname.vvhan.com
+  - name: 1.cf.cname.vvhan.com_2096
     server: 1.cf.cname.vvhan.com
-    port: 443
-    <<: *CF2
+    port: 2096
+    <<: *CF
 
-  - name: cf.0sm.com
+  - name: cf.0sm.com_2087
     server: cf.0sm.com
-    port: 443
-    <<: *CF2
+    port: 2087
+    <<: *CF
 
-  - name: cdn.2020111.xyz
+  - name: cdn.2020111.xyz_2083
     server: cdn.2020111.xyz
-    port: 443
-    <<: *CF2
+    port: 2083
+    <<: *CF
 
-  - name: 115155.xyz
+  - name: 115155.xyz_2053
     server: 115155.xyz
+    port: 2053
+    <<: *CF
+
+  - name: 1.cloudflare.182682.xyz_8443
+    server: 1.cloudflare.182682.xyz
     port: 8443
-    <<: *CF2
+    <<: *CF
 
-  - name: cloudflare.182682.xyz
-    server: cloudflare.182682.xyz
-    port: 443
-    <<: *CF2
-
-  - name: freeyx.cloudflare88.eu.org
+  - name: freeyx.cloudflare88.eu.org_8443
     server: freeyx.cloudflare88.eu.org
     port: 8443
-    <<: *CF2
+    <<: *CF
 
-  - name: speed.marisalnc.com
+  - name: speed.marisalnc.com_443
     server: speed.marisalnc.com
     port: 443
-    <<: *CF2
+    <<: *CF
 
-  - name: CF_V0_www.visa.com.hk_8443
+  - name: www.visa.com.hk_443
     server: www.visa.com.hk
-    port: 8443
-    <<: *CF2
+    port: 443
+    <<: *CF
 
-  - name: CF_V1_www.visa.com_443
+  - name: www.visa.com_443
     server: www.visa.com
     port: 443
-    <<: *CF2
+    <<: *CF
 
-  - name: CF_V2_cis.visa.com_8443
+  - name: cis.visa.com_8443
     server: cis.visa.com
     port: 8443
-    <<: *CF2
+    <<: *CF
 
-  - name: CF_V3_africa.visa.com_8443
+  - name: africa.visa.com_8443
     server: africa.visa.com
     port: 8443
-    <<: *CF2
+    <<: *CF
 
-  - name: CF_V4_www.visa.com.sg_2053
+  - name: www.visa.com.sg_2053
     server: www.visa.com.sg
     port: 2053
-    <<: *CF2
+    <<: *CF
 
-  - name: CF_V5_www.visaeurope.at_2083
+  - name: www.visaeurope.at_2083
     server: www.visaeurope.at
     port: 2083
-    <<: *CF2
+    <<: *CF
 
-  - name: CF_V6_www.visa.com.mt_2087
+  - name: www.visa.com.mt_2087
     server: www.visa.com.mt
     port: 2087
-    <<: *CF2
+    <<: *CF
 
-  - name: CF_V7_qa.visamiddleeast.com_2096
+  - name: qa.visamiddleeast.com_2096
     server: qa.visamiddleeast.com
     port: 2096
-    <<: *CF2
+    <<: *CF
 
-  - name: CF_V8_usa.visa.com_443
+  - name: usa.visa.com_443
     server: usa.visa.com
     port: 443
-    <<: *CF2
+    <<: *CF
 
-  - name: CF_V9_myanmar.visa.com_8443
+  - name: myanmar.visa.com_8443
     server: myanmar.visa.com
     port: 8443
-    <<: *CF2
+    <<: *CF
 
-  - name: CF_V10_www.visa.com.tw_2053
+  - name: www.visa.com.tw_2053
     server: www.visa.com.tw
     port: 2053
-    <<: *CF2
+    <<: *CF
 
-  - name: CF_V11_www.visaeurope.ch_2083
+  - name: www.visaeurope.ch_2083
     server: www.visaeurope.ch
     port: 2083
-    <<: *CF2
+    <<: *CF
 
-  - name: CF_V12_www.visa.com.br_2087
+  - name: www.visa.com.br_2087
     server: www.visa.com.br
     port: 2087
-    <<: *CF2
+    <<: *CF
 
-  - name: CF_V13_www.visasoutheasteurope.com_2096
+  - name: www.visasoutheasteurope.com_2096
     server: www.visasoutheasteurope.com
     port: 2096
-    <<: *CF2
+    <<: *CF
 
-  - name: CF_V14_singapore.com_443
+  - name: singapore.com_8443
     server: singapore.com
+    port: 8443
+    <<: *CF
+
+- name: www.dynadot.com_443
+    server: www.dynadot.com
     port: 443
-    <<: *CF2
+    <<: *CF
 
 proxy-groups:
   - name: 🌥️ 赛博活佛
     type: select
     proxies:
-      - cf.090227.xyz
-      - www.xinjuc.com
-      - ip.sb
-      - skk.moe
-      - cfip.1323123.xyz
-      - 8.cf.959923.xyz
-      - cf.877771.xyz
-      - 1.cf.cname.vvhan.com
-      - cf.0sm.com
-      - cdn.2020111.xyz
-      - 115155.xyz
-      - cloudflare.182682.xyz
-      - freeyx.cloudflare88.eu.org
-      - speed.marisalnc.com
-      - CF_V0_www.visa.com.hk_8443
-      - CF_V1_www.visa.com_443
-      - CF_V2_cis.visa.com_8443
-      - CF_V3_africa.visa.com_8443
-      - CF_V4_www.visa.com.sg_2053
-      - CF_V5_www.visaeurope.at_2083
-      - CF_V6_www.visa.com.mt_2087
-      - CF_V7_qa.visamiddleeast.com_2096
-      - CF_V8_usa.visa.com_443
-      - CF_V9_myanmar.visa.com_8443
-      - CF_V10_www.visa.com.tw_2053
-      - CF_V11_www.visaeurope.ch_2083
-      - CF_V12_www.visa.com.br_2087
-      - CF_V13_www.visasoutheasteurope.com_2096
-      - CF_V14_singapore.com_443
-    url: https://www.cloudflare.com
-    interval: 72000
+      - cf.090227.xyz_2096
+      - www.xinjuc.com_2087
+      - ip.sb_2083
+      - skk.moe_2053
+      - cfip.1323123.xyz_8443
+      - 8.cf.959923.xyz_8443
+      - cf.877771.xyz_443
+      - 1.cf.cname.vvhan.com_2096
+      - cf.0sm.com_2087
+      - cdn.2020111.xyz_2083
+      - 115155.xyz_2053
+      - 1.cloudflare.182682.xyz_8443
+      - freeyx.cloudflare88.eu.org_8443
+      - speed.marisalnc.com_443
+      - www.visa.com.hk_443
+      - www.visa.com_443
+      - cis.visa.com_8443
+      - africa.visa.com_8443
+      - www.visa.com.sg_2053
+      - www.visaeurope.at_2083
+      - www.visa.com.mt_2087
+      - qa.visamiddleeast.com_2096
+      - usa.visa.com_443
+      - myanmar.visa.com_8443
+      - www.visa.com.tw_2053
+      - www.visaeurope.ch_2083
+      - www.visa.com.br_2087
+      - www.visasoutheasteurope.com_2096
+      - singapore.com_8443
+      - www.dynadot.com_443
