@@ -6,7 +6,7 @@ bdhttp: &bdhttp
   headers:
     Proxy-Connection: keep-alive
     Host: 153.3.236.22:443
-    Path: "@gw.alicdn.com"
+    ConPath: "@gw.alicdn.com"
     X-T5-Auth: 683556433
 
 proxies:
