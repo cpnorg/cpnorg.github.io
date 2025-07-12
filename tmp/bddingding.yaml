@@ -6,7 +6,7 @@ bdhttp: &bdhttp
   headers:
     Proxy-Connection: keep-alive
     Host: alidocs.dingtalk.com
-    Path: "@alidocs.dingtalk.com:443 HTTP/1.1"
+    ConPath: "@alidocs.dingtalk.com:443 HTTP/1.1"
     X-T5-Auth: 914964676
     User-Agent: "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 15; Build/RP1A.210720.011) baiduboxapp/14.10.0.10 (Baidu; P1 12)"
 
