@@ -161,38 +161,3 @@ proxies:
     server: www.dynadot.com
     port: 80
     <<: *CF
-
-proxy-groups:
-  - name: 🌥️ 赛博活佛
-    type: select
-    proxies:
-      - cf.090227.xyz_2095
-      - www.xinjuc.com_2086
-      - ip.sb_2082
-      - skk.moe_2052
-      - cfip.1323123.xyz_8880
-      - 8.cf.959923.xyz_8080
-      - cf.877771.xyz_80
-      - 1.cf.cname.vvhan.com_2095
-      - cf.0sm.com_2086
-      - cdn.2020111.xyz_2082
-      - 115155.xyz_2052
-      - 1.cloudflare.182682.xyz_8880
-      - freeyx.cloudflare88.eu.org_8080
-      - speed.marisalnc.com_80
-      - www.visa.com.hk_80
-      - www.visa.com_80
-      - cis.visa.com_8080
-      - africa.visa.com_8080
-      - www.visa.com.sg_2052
-      - www.visaeurope.at_2082
-      - www.visa.com.mt_2086
-      - qa.visamiddleeast.com_2095
-      - usa.visa.com_80
-      - myanmar.visa.com_8080
-      - www.visa.com.tw_2052
-      - www.visaeurope.ch_2082
-      - www.visa.com.br_2086
-      - www.visasoutheasteurope.com_2095
-      - singapore.com_8880
-      - www.dynadot.com_80
