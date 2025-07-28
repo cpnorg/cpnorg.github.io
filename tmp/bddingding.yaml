@@ -1,4 +1,4 @@
-bdhttp: &bdhttp
+bd: &bd
   type: http
   port: 443
   udp: false
@@ -14,64 +14,64 @@ bdhttp: &bdhttp
 proxies:
   - name: 🇨🇳 CU河北1
     server: 110.242.70.68
-    <<: *bdhttp
+    <<: *bd
 
   - name: 🇨🇳 CU河北2
     server: 110.242.70.69
-    <<: *bdhttp
+    <<: *bd
 
   - name: 🇨🇳 CU南京
     server: 153.3.237.117
-    <<: *bdhttp
+    <<: *bd
 
   - name: 🇨🇳 CU江苏
     server: 157.0.146.158
-    <<: *bdhttp
+    <<: *bd
 
   - name: 🇨🇳 CU广州1
     server: 163.177.17.6
-    <<: *bdhttp
+    <<: *bd
 
   - name: 🇨🇳 CU广州2
     server: 163.177.17.189
-    <<: *bdhttp
+    <<: *bd
 
   - name: 🇨🇳 CM南京
     server: 36.155.169.188
-    <<: *bdhttp
+    <<: *bd
 
   - name: 🇨🇳 CM广州
     server: 183.240.98.84
-    <<: *bdhttp
+    <<: *bd
 
   - name: 🇨🇳 CT广州
     server: 14.215.182.75
-    <<: *bdhttp
+    <<: *bd
 
   - name: 🇨🇳 CT苏州
     server: 180.101.50.208
-    <<: *bdhttp
+    <<: *bd
 
   - name: 🇨🇳 CT南京
     server: 180.101.50.249
-    <<: *bdhttp
+    <<: *bd
 
   - name: 🇨🇳 CT北京广州苏州南京
     server: 220.181.111.189
-    <<: *bdhttp
+    <<: *bd
 
   - name: 🇨🇳 CT北京2苏南
     server: 220.181.33.174
-    <<: *bdhttp
+    <<: *bd
 
   - name: 🇨🇳 CT北京3南京
     server: 220.181.7.1
-    <<: *bdhttp
+    <<: *bd
 
   - name: 🇨🇳 BaiduAuto
     server: cloudnproxy.baidu.com
-    <<: *bdhttp
+    <<: *bd
 
   - name: 🇨🇳 CM上海V6
     server: 2409:8c20:6:1e18:0:ff:b0c0:4438
-    <<: *bdhttp
+    <<: *bd
