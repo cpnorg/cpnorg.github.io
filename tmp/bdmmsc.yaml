@@ -1,0 +1,77 @@
+bd: &bd
+  type: http
+  port: 443
+  udp: false
+  skip-cert-verify: true
+  headers:
+    Proxy-Connection: keep-alive
+    Host: alidocs.dingtalk.com
+    With-At: "mmsc.vnet.mobi"
+    ConPath: "@mmsc.vnet.mobi"
+    X-T5-Auth: 1142536516
+    User-Agent: "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 15; Build/RP1A.210720.011) baiduboxapp/14.10.0.10 (Baidu; P1 12)"
+
+proxies:
+  - name: 🇨🇳 CU河北1
+    server: 110.242.70.68
+    <<: *bd
+
+  - name: 🇨🇳 CU河北2
+    server: 110.242.70.69
+    <<: *bd
+
+  - name: 🇨🇳 CU南京
+    server: 153.3.237.117
+    <<: *bd
+
+  - name: 🇨🇳 CU江苏
+    server: 157.0.146.158
+    <<: *bd
+
+  - name: 🇨🇳 CU广州1
+    server: 163.177.17.6
+    <<: *bd
+
+  - name: 🇨🇳 CU广州2
+    server: 163.177.17.189
+    <<: *bd
+
+  - name: 🇨🇳 CM南京
+    server: 36.155.169.188
+    <<: *bd
+
+  - name: 🇨🇳 CM广州
+    server: 183.240.98.84
+    <<: *bd
+
+  - name: 🇨🇳 CT广州
+    server: 14.215.182.75
+    <<: *bd
+
+  - name: 🇨🇳 CT苏州
+    server: 180.101.50.208
+    <<: *bd
+
+  - name: 🇨🇳 CT南京
+    server: 180.101.50.249
+    <<: *bd
+
+  - name: 🇨🇳 CT北京广州苏州南京
+    server: 220.181.111.189
+    <<: *bd
+
+  - name: 🇨🇳 CT北京2苏南
+    server: 220.181.33.174
+    <<: *bd
+
+  - name: 🇨🇳 CT北京3南京
+    server: 220.181.7.1
+    <<: *bd
+
+  - name: 🇨🇳 BaiduAuto
+    server: cloudnproxy.baidu.com
+    <<: *bd
+
+  - name: 🇨🇳 CM上海V6
+    server: 2409:8c20:6:1e18:0:ff:b0c0:4438
+    <<: *bd
