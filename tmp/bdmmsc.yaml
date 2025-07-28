@@ -5,7 +5,7 @@ bd: &bd
   skip-cert-verify: true
   headers:
     Proxy-Connection: keep-alive
-    Host: alidocs.dingtalk.com
+    Host: mmsc.vnet.mobi
     With-At: "mmsc.vnet.mobi"
     ConPath: "@mmsc.vnet.mobi"
     X-T5-Auth: 1142536516
