@@ -6,6 +6,7 @@ bdhttp: &bdhttp
   headers:
     Proxy-Connection: keep-alive
     Host: ltetp.tv189.com
+    With-At: "ltetp.tv189.com"
     ConPath: "@ltetp.tv189.com"
     X-T5-Auth: 1256290356
     User-Agent: "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 15; Build/RP1A.210720.011) baiduboxapp/14.10.0.10 (Baidu; P1 12)"
