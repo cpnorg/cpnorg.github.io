@@ -1,0 +1,243 @@
+mixed-port: 7890
+tproxy-port: 9898
+redir-port: 9797
+mode: rule
+allow-lan: true
+unified-delay: true
+tcp-concurrent: true
+global-client-fingerprint: firefox
+find-process-mode: always
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+external-ui: dashboard
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+sniffer:
+  enable: true
+  override-destination: false
+  sniff:
+    HTTP:
+      ports: [80, 443, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 853, 8443]
+    QUIC:
+      ports: [443, 853, 8443]
+      override-destination: true
+
+hosts:
+  '*.clash.dev': 127.0.0.1
+  alpha.clash.dev: '::1'
+  dns.alidns.com: 223.6.6.6
+  doh.pub: 120.53.53.53
+  appupdate.189.cn: 127.0.0.1
+
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  respect-rules: true
+  ipv6: false
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    - +.lan
+    - +.local
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver-policy:
+    'geolocation-!cn':
+      - "https://4.2.2.2/dns-query#🌎 全球节点"
+      - "https://180.184.1.1/dns-query#🌎 全球节点"
+  nameserver:
+    - "https://223.5.5.5/dns-query#🇨🇳 国内节点"
+    - "https://120.53.53.53/dns-query#🇨🇳 国内节点"
+  proxy-server-nameserver:
+    - "https://223.5.5.5/dns-query#🇨🇳 国内节点"
+    - "https://120.53.53.53/dns-query#🇨🇳 国内节点"
+
+proxy-providers:
+  global:
+    type: http
+    url: http://127.0.0.1:3000/download/global?target=ClashMeta
+    path: ./proxy_providers/global.yaml
+    override:
+      dialer-proxy: 🇨🇳 国内节点
+    health-check:
+      enable: true
+      interval: 72000
+      url: https://www.gstatic.com/generate_204
+
+  mainland:
+    type: http
+    url: http://127.0.0.1:3000/download/mainland?target=ClashMeta
+    path: ./proxy_providers/mainlan.yaml
+    health-check:
+      enable: true
+      interval: 72000
+      url: https://www.gstatic.com/generate_204
+
+  cloudflaretls:
+    type: http
+    url: http://cpn.ficc.cc/tmp/cloudflaretls.yaml
+    path: ./proxy_providers/cloudflaretls.yaml
+    override:
+      dialer-proxy: 🇨🇳 国内节点
+    health-check:
+      enable: true
+      interval: 72000
+      url: https://www.gstatic.com/generate_204
+
+  cloudflarenotls:
+    type: http
+    url: http://cpn.ficc.cc/tmp/cloudflarenotls.yaml
+    path: ./proxy_providers/cloudflarenotls.yaml
+    override:
+      dialer-proxy: 🇨🇳 国内节点
+    health-check:
+      enable: true
+      interval: 72000
+      url: https://www.gstatic.com/generate_204
+
+  out1:
+    type: http
+    url: https://sub.xn--mes91t7ofgnw.com/s/0273205782c73e45d4410d8fae87d5a4
+    path: ./proxy_providers/out1.yaml
+    override:
+      dialer-proxy: 🇨🇳 国内节点
+    header:
+      User-Agent:
+      - "clash-verge/v1.6.6"
+    health-check:
+      enable: true
+      interval: 72000
+      url: https://www.gstatic.com/generate_204
+
+bd: &bd
+  type: http
+  port: 443
+  udp: false
+  skip-cert-verify: true
+  headers:
+    Proxy-Connection: keep-alive
+    Host: 153.3.236.22:443
+    With-At: "[MLHOST]"
+    ConPath: "@[MLHOST]"
+    X-T5-Auth: 683556433
+    User-Agent: "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 15; Build/RP1A.210720.011) baiduboxapp/14.10.0.10 (Baidu; P1 12)"
+
+proxies:
+  - name: "dns-out"
+    type: dns
+  - name: 🇨🇳 CU河北1
+    server: 110.242.70.68
+    <<: *bd
+
+  - name: 🇨🇳 CU河北2
+    server: 110.242.70.69
+    <<: *bd
+
+  - name: 🇨🇳 CU南京
+    server: 153.3.237.117
+    <<: *bd
+
+  - name: 🇨🇳 CU江苏
+    server: 157.0.146.158
+    <<: *bd
+
+  - name: 🇨🇳 CU广州1
+    server: 163.177.17.6
+    <<: *bd
+
+  - name: 🇨🇳 CU广州2
+    server: 163.177.17.189
+    <<: *bd
+
+  - name: 🇨🇳 CM南京
+    server: 36.155.169.188
+    <<: *bd
+
+  - name: 🇨🇳 CM广州
+    server: 183.240.98.84
+    <<: *bd
+
+  - name: 🇨🇳 CT广州
+    server: 14.215.182.75
+    <<: *bd
+
+  - name: 🇨🇳 CT苏州
+    server: 180.101.50.208
+    <<: *bd
+
+  - name: 🇨🇳 CT南京
+    server: 180.101.50.249
+    <<: *bd
+
+  - name: 🇨🇳 CT北京广州苏州南京
+    server: 220.181.111.189
+    <<: *bd
+
+  - name: 🇨🇳 CT北京2苏南
+    server: 220.181.33.174
+    <<: *bd
+
+  - name: 🇨🇳 CT北京3南京
+    server: 220.181.7.1
+    <<: *bd
+
+  - name: 🇨🇳 BaiduAuto
+    server: cloudnproxy.baidu.com
+    <<: *bd
+
+  - name: 🇨🇳 CM上海V6
+    server: 2409:8c20:6:1e18:0:ff:b0c0:4438
+    <<: *bd
+proxy-groups:
+  - name: 🌎 全球节点
+    type: select
+    proxies:
+      - 🇨🇳 国内节点
+      - 🌥️ 赛博活佛
+    use:
+      - global
+
+  - name: 🇨🇳 国内节点
+    type: select
+    proxies:
+      - 🇨🇳 CU河北1
+      - 🇨🇳 CU河北2
+      - 🇨🇳 CU南京
+      - 🇨🇳 CU江苏
+      - 🇨🇳 CU广州1
+      - 🇨🇳 CU广州2
+      - 🇨🇳 CM南京
+      - 🇨🇳 CM广州
+      - 🇨🇳 CT广州
+      - 🇨🇳 CT苏州
+      - 🇨🇳 CT南京
+      - 🇨🇳 CT北京广州苏州南京
+      - 🇨🇳 CT北京2苏南
+      - 🇨🇳 CT北京3南京
+      - 🇨🇳 BaiduAuto
+      - 🇨🇳 CM上海V6
+
+  - name: 🌥️ 赛博活佛
+    type: select
+    proxies:
+    use:
+      - cloudflaretls
+      - cloudflarenotls
+      - out1
+
+rules:
+  - DST-PORT,53,dns-out
+#  - DST-PORT,446,🎮 UDP策略
+  - IP-CIDR,127.0.0.1/32,DIRECT
+  - GEOIP,CN,🇨🇳 国内节点
+  - GEOSITE,CN,🇨🇳 国内节点
+  - DOMAIN,ghfast.top,🇨🇳 国内节点
+  - DOMAIN-KEYWORD,notion,🌎 全球节点
+#  - NETWORK,UDP,🎮 UDP策略
+  - MATCH,🌎 全球节点
