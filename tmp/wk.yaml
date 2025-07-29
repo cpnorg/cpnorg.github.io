@@ -1,0 +1,183 @@
+mixed-port: 7890
+tproxy-port: 9898
+redir-port: 9797
+mode: rule
+allow-lan: true
+unified-delay: true
+tcp-concurrent: true
+global-client-fingerprint: firefox
+find-process-mode: always
+log-level: info
+ipv6: false
+external-controller: 0.0.0.0:9090
+external-ui: dashboard
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+sniffer:
+  enable: true
+  override-destination: false
+  sniff:
+    HTTP:
+      ports: [80, 443, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 853, 8443]
+    QUIC:
+      ports: [443, 853, 8443]
+      override-destination: true
+
+hosts:
+  '*.clash.dev': 127.0.0.1
+  alpha.clash.dev: '::1'
+  dns.alidns.com: 223.6.6.6
+  doh.pub: 120.53.53.53
+  appupdate.189.cn: 127.0.0.1
+
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  respect-rules: true
+  ipv6: false
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    - +.lan
+    - +.local
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver-policy:
+    'geolocation-!cn':
+      - "https://4.2.2.2/dns-query#🌎 全球节点"
+      - "https://180.184.1.1/dns-query#🌎 全球节点"
+  nameserver:
+    - "https://223.5.5.5/dns-query#🇨🇳 国内节点"
+    - "https://120.53.53.53/dns-query#🇨🇳 国内节点"
+  proxy-server-nameserver:
+    - "https://223.5.5.5/dns-query#🇨🇳 国内节点"
+    - "https://120.53.53.53/dns-query#🇨🇳 国内节点"
+
+proxy-providers:
+  global:
+    type: http
+    url: http://127.0.0.1:3000/download/global?target=ClashMeta
+    path: ./proxy_providers/global.yaml
+    override:
+      dialer-proxy: 🇨🇳 国内节点
+    health-check:
+      enable: true
+      interval: 72000
+      url: https://www.gstatic.com/generate_204
+
+  mainland:
+    type: http
+    url: http://127.0.0.1:3000/download/mainland?target=ClashMeta
+    path: ./proxy_providers/mainlan.yaml
+    health-check:
+      enable: true
+      interval: 72000
+      url: https://www.gstatic.com/generate_204
+
+  cloudflaretls:
+    type: http
+    url: http://cpn.ficc.cc/tmp/cloudflaretls.yaml
+    path: ./proxy_providers/cloudflaretls.yaml
+    override:
+      dialer-proxy: 🇨🇳 国内节点
+    health-check:
+      enable: true
+      interval: 72000
+      url: https://www.gstatic.com/generate_204
+
+  cloudflarenotls:
+    type: http
+    url: http://cpn.ficc.cc/tmp/cloudflarenotls.yaml
+    path: ./proxy_providers/cloudflarenotls.yaml
+    override:
+      dialer-proxy: 🇨🇳 国内节点
+    health-check:
+      enable: true
+      interval: 72000
+      url: https://www.gstatic.com/generate_204
+
+  out1:
+    type: http
+    url: https://sub.xn--mes91t7ofgnw.com/s/0273205782c73e45d4410d8fae87d5a4
+    path: ./proxy_providers/out1.yaml
+    override:
+      dialer-proxy: 🇨🇳 国内节点
+    header:
+      User-Agent:
+      - "clash-verge/v1.6.6"
+    health-check:
+      enable: true
+      interval: 72000
+      url: https://www.gstatic.com/generate_204
+
+wk: &wk
+  type: http
+  port: 8091
+  headers:
+    ConPath: "@[MLHOST]"
+    With-At: "[MLHOST]"
+    Q-GUID: "[Q-GUID]"
+    Q-Token: "[Q-Token]"
+    User-Agent: "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 13; Redmi K50 5G Build/RKQ1.200826.002)"
+proxies:
+  - name: "dns-out"
+    type: dns
+  - name: CU广州1
+    server: 157.148.54.212
+    <<: *wk
+  - name: CU广州2
+    server: 157.148.57.45
+    <<: *wk
+  - name: CU广州3
+    server: 157.255.4.32
+    <<: *wk
+  - name: CU广州4
+    server: 157.255.5.193
+    <<: *wk
+  - name: CU苏州
+    server: 140.207.55.29
+    <<: *wk
+  - name: CU上海
+    server: 112.65.195.232
+    <<: *wk
+proxy-groups:
+  - name: 🌎 全球节点
+    type: select
+    proxies:
+      - 🇨🇳 国内节点
+      - 🌥️ 赛博活佛
+    use:
+      - global
+
+  - name: 🇨🇳 国内节点
+    type: select
+    proxies:
+      - CU广州1
+      - CU广州2
+      - CU广州3
+      - CU广州4
+      - CU苏州
+      - CU上海
+
+  - name: 🌥️ 赛博活佛
+    type: select
+    proxies:
+    use:
+      - cloudflaretls
+      - cloudflarenotls
+      - out1
+
+rules:
+  - DST-PORT,53,dns-out
+  - IP-CIDR,127.0.0.1/32,DIRECT
+  - GEOIP,CN,🇨🇳 国内节点
+  - GEOSITE,CN,🇨🇳 国内节点
+  - DOMAIN,ghfast.top,🇨🇳 国内节点
+  - DOMAIN-KEYWORD,notion,🌎 全球节点
+#  - NETWORK,UDP,🎮 UDP策略
+  - MATCH,🌎 全球节点
