@@ -1,0 +1,31 @@
+cmedu: &cmedu
+  type: socks5
+  port: 10800
+  password: Md5kGs46
+  udp: true
+
+proxies:
+  - name: CM京落TC沪港
+    <<: *cmedu
+    server: 36.134.129.66
+    username: 1611874834097287294@0x82
+
+  - name: CM沪落TC沪港
+    <<: *cmedu
+    server: 36.134.36.231
+    username: 1611874834097287294@0x82
+
+  - name: CM京落CM京
+    <<: *cmedu
+    server: 36.134.129.66
+    username: 1611874834097287294@0x80
+
+  - name: CM沪落CM沪
+    <<: *cmedu
+    server: 36.134.36.231
+    username: 1611874834097287294@0x80
+
+  - name: CM苏落TC沪
+    <<: *cmedu
+    server: 223.109.209.219
+    username: 1611874834097287294@0x80
